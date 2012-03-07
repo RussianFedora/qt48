@@ -17,7 +17,7 @@ Release: 10%{?dist}
 License: (LGPLv2 with exceptions or GPLv3 with exceptions) and ASL 2.0 and BSD and FTL and MIT
 Group: System Environment/Libraries
 Url: http://qt.nokia.com/
-Source0: http://get.qt.nokia.com/qt/source/qt-everywhere-opensource-src-%{version}.tar.gz
+Source0: qt-everywhere-opensource-src-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Obsoletes: qt4 < %{version}-%{release}
