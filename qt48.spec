@@ -11,7 +11,7 @@ Summary: Qt toolkit
 Name:    qt48
 Epoch:   1
 Version: 4.8.0
-Release: 10%{?dist}
+Release: 10.1%{?dist}
 
 # See LGPL_EXCEPTIONS.txt, LICENSE.GPL3, respectively, for exception details
 License: (LGPLv2 with exceptions or GPLv3 with exceptions) and ASL 2.0 and BSD and FTL and MIT
@@ -20,8 +20,8 @@ Url: http://qt.nokia.com/
 Source0: qt-everywhere-opensource-src-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Obsoletes: qt4 < %{version}-%{release}
-Provides: qt4 = %{version}-%{release}
+#Obsoletes: qt4 < %{version}-%{release}
+#Provides: qt4 = %{version}-%{release}
 %{?_isa:Provides: qt4%{?_isa} = %{version}-%{release}}
 
 # default Qt config file
@@ -256,8 +256,8 @@ Group: User Interface/Desktops
 # -config introduced in 4.7.1-10 , for upgrade path
 # seems to tickle a pk bug, https://bugzilla.redhat.com/674326
 #Obsoletes: %{name}-x11 < 1:4.7.1-10
-Obsoletes: qt4-config < 4.5.0
-Provides:  qt4-config = %{version}-%{release}
+#Obsoletes: qt4-config < 4.5.0
+#Provides:  qt4-config = %{version}-%{release}
 Requires: %{name}-x11%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %description config 
 %{summary}.
@@ -292,16 +292,16 @@ Requires: %{name}-x11%{?_isa}
 Requires: %{name}-sqlite%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires: %{x_deps}
 Requires: pkgconfig
-%if 0%{?phonon:1}
-Provides: qt4-phonon-devel = %{version}-%{release}
-%endif
-Obsoletes: qt4-designer < %{version}-%{release}
-Provides:  qt4-designer = %{version}-%{release}
+#%if 0%{?phonon:1}
+#Provides: qt4-phonon-devel = %{version}-%{release}
+#%endif
+#Obsoletes: qt4-designer < %{version}-%{release}
+#Provides:  qt4-designer = %{version}-%{release}
 # as long as libQtUiTools.a is included
 Provides:  %{name}-static = %{version}-%{release}
-Obsoletes: qt4-devel < %{version}-%{release}
-Provides:  qt4-devel = %{version}-%{release}
-%{?_isa:Provides: qt4-devel%{?_isa} = %{version}-%{release}}
+#Obsoletes: qt4-devel < %{version}-%{release}
+#Provides:  qt4-devel = %{version}-%{release}
+#%{?_isa:Provides: qt4-devel%{?_isa} = %{version}-%{release}}
 Provides:  %{name}-static = %{version}-%{release}
 
 %description devel
@@ -349,11 +349,11 @@ Provides:  qt4-ibase = %{version}-%{release}
 Summary: MySQL driver for Qt's SQL classes
 Group: System Environment/Libraries
 Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes: qt4-MySQL < %{version}-%{release}
-Provides:  qt4-MySQL = %{version}-%{release}
-Obsoletes: qt4-mysql < %{version}-%{release}
-Provides:  qt4-mysql = %{version}-%{release}
-%{?_isa:Provides: qt4-mysql%{?_isa} = %{version}-%{release}}
+#Obsoletes: qt4-MySQL < %{version}-%{release}
+#Provides:  qt4-MySQL = %{version}-%{release}
+#Obsoletes: qt4-mysql < %{version}-%{release}
+#Provides:  qt4-mysql = %{version}-%{release}
+#%{?_isa:Provides: qt4-mysql%{?_isa} = %{version}-%{release}}
 %description mysql 
 %{summary}.
 
@@ -361,10 +361,10 @@ Provides:  qt4-mysql = %{version}-%{release}
 Summary: ODBC driver for Qt's SQL classes
 Group: System Environment/Libraries
 Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes: qt4-ODBC < %{version}-%{release}
-Provides:  qt4-ODBC = %{version}-%{release}
-Obsoletes: qt4-odbc < %{version}-%{release}
-Provides:  qt4-odbc = %{version}-%{release}
+#Obsoletes: qt4-ODBC < %{version}-%{release}
+#Provides:  qt4-ODBC = %{version}-%{release}
+#Obsoletes: qt4-odbc < %{version}-%{release}
+#Provides:  qt4-odbc = %{version}-%{release}
 %{?_isa:Provides: qt4-odbc%{?_isa} = %{version}-%{release}}
 %description odbc 
 %{summary}.
@@ -373,11 +373,11 @@ Provides:  qt4-odbc = %{version}-%{release}
 Summary: PostgreSQL driver for Qt's SQL classes
 Group: System Environment/Libraries
 Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes: qt4-PostgreSQL < %{version}-%{release}
-Provides:  qt4-PostgreSQL = %{version}-%{release}
-Obsoletes: qt4-postgresql < %{version}-%{release}
-Provides:  qt4-postgresql = %{version}-%{release}
-%{?_isa:Provides: qt4-postgresql%{?_isa} = %{version}-%{release}}
+#Obsoletes: qt4-PostgreSQL < %{version}-%{release}
+#Provides:  qt4-PostgreSQL = %{version}-%{release}
+#Obsoletes: qt4-postgresql < %{version}-%{release}
+#Provides:  qt4-postgresql = %{version}-%{release}
+#%{?_isa:Provides: qt4-postgresql%{?_isa} = %{version}-%{release}}
 %description postgresql 
 %{summary}.
 
@@ -397,9 +397,9 @@ Group: System Environment/Libraries
 # that will Provides: it -- Rex
 Obsoletes: qt-designer-plugin-phonon < 1:4.7.2-6
 Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes: qt4-x11 < %{version}-%{release}
-Provides:  qt4-x11 = %{version}-%{release}
-%{?_isa:Provides: qt4-x11%{?_isa} = %{version}-%{release}}
+#Obsoletes: qt4-x11 < %{version}-%{release}
+#Provides:  qt4-x11 = %{version}-%{release}
+#%{?_isa:Provides: qt4-x11%{?_isa} = %{version}-%{release}}
 %description x11
 Qt libraries used for drawing widgets and OpenGL items.
 
@@ -1082,6 +1082,9 @@ fi
 
 
 %changelog
+* Wed Mar 21 2012 Arkady L. Shane <ashejn@russianfedora.ru> - 1:4.8.0-10.1.R
+- drop some Provides and Obsoletes
+
 * Tue Feb 28 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:4.8.0-10
 - Rebuilt for c++ ABI breakage
 
