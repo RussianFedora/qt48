@@ -11,7 +11,7 @@ Summary: Qt toolkit
 Name:    qt48
 Epoch:   1
 Version: 4.8.0
-Release: 10.1%{?dist}
+Release: 10.2%{?dist}
 
 # See LGPL_EXCEPTIONS.txt, LICENSE.GPL3, respectively, for exception details
 License: (LGPLv2 with exceptions or GPLv3 with exceptions) and ASL 2.0 and BSD and FTL and MIT
@@ -292,6 +292,7 @@ Requires: %{name}-x11%{?_isa}
 Requires: %{name}-sqlite%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires: %{x_deps}
 Requires: pkgconfig
+Conflicts: qt-devel
 #%if 0%{?phonon:1}
 #Provides: qt4-phonon-devel = %{version}-%{release}
 #%endif
@@ -1082,6 +1083,9 @@ fi
 
 
 %changelog
+* Wed Mar 21 2012 Arkady L. Shane <ashejn@russianfedora.ru> - 1:4.8.0-10.2.R
+- added C: qt-devel
+
 * Wed Mar 21 2012 Arkady L. Shane <ashejn@russianfedora.ru> - 1:4.8.0-10.1.R
 - drop some Provides and Obsoletes
 
